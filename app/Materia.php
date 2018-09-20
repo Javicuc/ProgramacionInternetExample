@@ -7,12 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Materia extends Model
 {
   
-  protected $filliable = [
+  protected $fillable = [
     'materia',
     'crn',
     'seccion',
     'horario',
-    '_token',
   ];
   
   public function user()
