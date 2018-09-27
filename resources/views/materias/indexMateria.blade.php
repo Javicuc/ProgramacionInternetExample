@@ -1,18 +1,16 @@
 @extends('layouts.tema')
 
+@section('titulo_contenido') Listado de Materias @endsection
+@section('subtitulo_contenido') Materias Registradas en BD @endsection
+@section('ruta_ref') <a href="{{ url('/materias') }}">Materias</a> @endsection
+
 @section('contenido')
-  
-<h1>
-  Listado de materias
-</h1> 
-
-<a href="{{ action('MateriaController@create')}}" class="btn btn-success">Nueva Materia</a>
 <a href="{{ route('materias.create')}}" class="btn btn-success">Nueva Materia</a>
-
 @if($materias->count() == 0)
 <div class="alert-warning">
   No Tienes Materias Registradas
 </div>
+@endif
 <table class="table">
   <thead>
     <th>Materia</th>
@@ -33,5 +31,4 @@
     @endforeach
   </tbody>
 </table>  
-@endif
 @endsection

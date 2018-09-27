@@ -1,20 +1,14 @@
-@extends('layouts.tema') @section('contenido')
+@extends('layouts.tema') 
 
-<div class="app-title">
-  <div>
-    <h1><i class="fa fa-edit"></i> Crear Materia</h1>
-    <p>Registrar Materia en BD</p>
-  </div>
-  <ul class="app-breadcrumb breadcrumb">
-    <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-    <li class="breadcrumb-item">Create</li>
-    <li class="breadcrumb-item"><a href="{{ route('materias.create')}}">Nueva Materia</a></li>
-  </ul>
-</div>
+@section('titulo_contenido') Registrar Materia @endsection
+@section('subtitulo_contenido') Registrar Materia en BD @endsection
+@section('ruta_ref') <a href="{{ url('/materias') }}">Materias</a> @endsection
+
+@section('contenido')
 <div class="row">
   <div class="col-md-12">
     <div class="tile">
-      <h3 class="tile-title">Registrar Nueva Materia</h3>
+      <h3 class="tile-title">Rellene los campos para Materia</h3>
       <div class="tile-body">
         <form action="{{ route('materias.store') }}" method="POST">
           {{ csrf_field() }}

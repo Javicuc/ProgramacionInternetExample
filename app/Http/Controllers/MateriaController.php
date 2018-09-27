@@ -46,7 +46,7 @@ class MateriaController extends Controller
         $this->validate($request, $rules);
         $data = $request->all();
         $materia = Materia::create($data);
-        return $this->showOne($materia, 201);
+        return view('bienvenida');
     }
 
     /**
@@ -58,8 +58,8 @@ class MateriaController extends Controller
     public function show($id)
     {
         $nombre = 'Programación para Internet';
-  return view('materias.showMateria', compact('id','nombre'));
-    //->with(['id' => $id, 'nombre' => $nombre]);
+        return view('materias.showMateria', compact('id','nombre'));
+        //->with(['id' => $id, 'nombre' => $nombre]);
     }
 
     /**

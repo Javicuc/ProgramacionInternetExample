@@ -12,12 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('bienvenida');
+});
+
+Route::get('/inicio', function(){
+  return view('bienvenida');
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 /*
 Route::resource('alumnos', 'AlumnoController', [ 'except' => ['edit', 'create']]);
@@ -28,7 +30,4 @@ Route::resource('dependencias', 'DependenciaController', [ 'except' => ['edit', 
 */
 
 Route::resource('materias', 'MateriaController');
-
-Route::get('/inicio', function(){
-  return view('bienvenida');
-});
+Route::resource('alumnos', 'AlumnoController');
