@@ -22,6 +22,9 @@
   <tbody>
     @foreach($materias as $materia)
     <tr>
+      <td>
+        <a class="btn btn-sm btn-info" href="{{ route('materias.show', $materia->id) }}">{{ $materia->id }}</a>
+      </td>
       <td>{{ $materia->materia }}</td>
       <td>{{ $materia->crn }}</td>
       <td>{{ $materia->seccion}}</td>

@@ -37,16 +37,17 @@ class MateriaController extends Controller
     public function store(Request $request)
     {
         $rules = array(
-          'materia' => 'required',
+          'materia' => 'required|min:5',
           'crn' => 'required|numeric', 
-          'seccion' => 'required',
+          'seccion' => 'required|min:3|max:5',
           'horario' => 'required',
         );
       
         $this->validate($request, $rules);
+        
         $data = $request->all();
         $materia = Materia::create($data);
-        return view('bienvenida');
+        return redirect()->route('materias.index');
     }
 
     /**
@@ -55,10 +56,10 @@ class MateriaController extends Controller
      * @param  \App\Materia  $materia
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Materia $materia)
     {
-        $nombre = 'Programación para Internet';
-        return view('materias.showMateria', compact('id','nombre'));
+        $materia = Materia::find($materia->id);
+        return view('materias.showMateria', compact('materia'));
         //->with(['id' => $id, 'nombre' => $nombre]);
     }
 
@@ -68,9 +69,10 @@ class MateriaController extends Controller
      * @param  \App\Materia  $materia
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Materia $materia)
     {
-        return view('materias.formEditMateria');
+        
+        return view('materias.formMateria', compact('materia'));
     }
 
     /**
@@ -80,9 +82,24 @@ class MateriaController extends Controller
      * @param  \App\Materia  $materia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Materia $materia)
     {
-        //
+        $rules = array(
+          'materia' => 'required|min:5',
+          'crn' => 'required|numeric', 
+          'seccion' => 'required|min:3|max:5',
+          'horario' => 'required',
+        );
+      
+        $this->validate($request, $rules);
+      
+        $materia->materia = $request->materia;
+        $materia->crn = $request->crn;
+        $materia->seccion = $request->seccion;
+        $materia->horario = $request->horario;
+        $materia->save();
+      
+        return view('materias.showMateria', compact('materia'));
     }
 
     /**
@@ -91,8 +108,9 @@ class MateriaController extends Controller
      * @param  \App\Materia  $materia
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Materia $materia)
     {
-        //
+        $materia->delete();
+        return redirect()->route('materias.index');
     }
 }
