@@ -22,6 +22,7 @@
       <table class="table">
         <thead>
           <th>CRN</th>
+          <th>SALÓN</th>
           <th>SECCION</th>
           <th>HORARIO</th>
           <th>ULTIMA ACTUALIZACIÓN</th>
@@ -29,6 +30,7 @@
         <tbody>
           <tr>
             <td>{{ $materia->crn }}</td>
+            <td>{{ $materia->salon }}</td>
             <td>{{ $materia->seccion}}</td>
             <td>{{ $materia->horario}}</td>
             <td>{{ $materia->updated_at}}</td>

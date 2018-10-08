@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class MateriaController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -41,6 +42,7 @@ class MateriaController extends Controller
           'crn' => 'required|numeric', 
           'seccion' => 'required|min:3|max:5',
           'horario' => 'required',
+          'salon' => 'required',
         );
       
         $this->validate($request, $rules);
@@ -89,6 +91,7 @@ class MateriaController extends Controller
           'crn' => 'required|numeric', 
           'seccion' => 'required|min:3|max:5',
           'horario' => 'required',
+          'salon' => 'required',
         );
       
         $this->validate($request, $rules);
@@ -97,6 +100,7 @@ class MateriaController extends Controller
         $materia->crn = $request->crn;
         $materia->seccion = $request->seccion;
         $materia->horario = $request->horario;
+        $materia->salon = $request->horario;
         $materia->save();
       
         return view('materias.showMateria', compact('materia'));

@@ -13,11 +13,13 @@
 @endif
 <table class="table">
   <thead>
+    <th>ID</th>
     <th>Materia</th>
     <th>CRN</th>
+    <th>SALÓN</th>
     <th>SECCION</th>
     <th>HORARIO</th>
-    <th>Ultima Actualización</th>
+    <th>ULTIMA ACTUALIZACIÓN</th>
   </thead>
   <tbody>
     @foreach($materias as $materia)
@@ -27,6 +29,7 @@
       </td>
       <td>{{ $materia->materia }}</td>
       <td>{{ $materia->crn }}</td>
+      <td>{{ $materia->salon }}</td>
       <td>{{ $materia->seccion}}</td>
       <td>{{ $materia->horario}}</td>
       <td>{{ $materia->updated_at}}</td>

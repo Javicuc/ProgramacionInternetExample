@@ -17,6 +17,7 @@ class CreateMateriasTable extends Migration
           $table->increments('id');
           $table->string('materia');
           $table->string('crn');
+          $table->string('salon');
           $table->string('seccion');
           $table->time('horario');
           $table->timestamps();

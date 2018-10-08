@@ -12,6 +12,7 @@ class Materia extends Model
     'crn',
     'seccion',
     'horario',
+    'salon',
   ];
   
   public function user()
