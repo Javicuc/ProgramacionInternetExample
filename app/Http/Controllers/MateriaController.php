@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 class MateriaController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -47,6 +52,9 @@ class MateriaController extends Controller
       
         $this->validate($request, $rules);
         
+        //Agrega 'user_id' al request para que se inserte a la base de datos
+        $request->merge(['user_id' => \Auth::id()]);
+
         $data = $request->all();
         $materia = Materia::create($data);
         return redirect()->route('materias.index');
@@ -96,12 +104,7 @@ class MateriaController extends Controller
       
         $this->validate($request, $rules);
       
-        $materia->materia = $request->materia;
-        $materia->crn = $request->crn;
-        $materia->seccion = $request->seccion;
-        $materia->horario = $request->horario;
-        $materia->salon = $request->horario;
-        $materia->save();
+        Materia::where('id', $materia->id)->update($request->except('_token', '_method'));
       
         return view('materias.showMateria', compact('materia'));
     }

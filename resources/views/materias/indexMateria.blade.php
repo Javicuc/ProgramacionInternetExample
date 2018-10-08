@@ -19,6 +19,7 @@
     <th>SALÓN</th>
     <th>SECCION</th>
     <th>HORARIO</th>
+    <th>USUARIO</th>
     <th>ULTIMA ACTUALIZACIÓN</th>
   </thead>
   <tbody>
@@ -30,9 +31,10 @@
       <td>{{ $materia->materia }}</td>
       <td>{{ $materia->crn }}</td>
       <td>{{ $materia->salon }}</td>
-      <td>{{ $materia->seccion}}</td>
-      <td>{{ $materia->horario}}</td>
-      <td>{{ $materia->updated_at}}</td>
+      <td>{{ $materia->seccion }}</td>
+      <td>{{ $materia->horario }}</td>
+      <td>{{ $materia->user->name }}</td>
+      <td>{{ $materia->updated_at }}</td>
     </tr>
     @endforeach
   </tbody>
