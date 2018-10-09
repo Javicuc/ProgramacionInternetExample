@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Materia extends Model
@@ -18,6 +19,9 @@ class Materia extends Model
   
   public function user()
   {
-    return $this->belongsTo('User');
+    //Ambas líneas son equivalentes 'App\ModelName' == ModelName::class
+    //return $this->belongsTo('App\User');
+    return $this->belongsTo(User::class);
   }
+
 }

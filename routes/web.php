@@ -31,3 +31,4 @@ Route::resource('dependencias', 'DependenciaController', [ 'except' => ['edit', 
 
 Route::resource('materias', 'MateriaController');
 Route::resource('alumnos', 'AlumnoController');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
