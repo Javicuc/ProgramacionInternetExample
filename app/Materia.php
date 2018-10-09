@@ -23,5 +23,10 @@ class Materia extends Model
     //return $this->belongsTo('App\User');
     return $this->belongsTo(User::class);
   }
-
+  
+  
+  public function alumnos()
+  {
+    return $this->belongsTo(Alumno::class);
+  }
 }

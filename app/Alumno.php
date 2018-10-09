@@ -11,4 +11,10 @@ class Alumno extends Model
     'codigo',
     'carrera',
   ];
+  
+  public function materias()
+  {
+    return $this->belongsToMany(Materia::class);
+  }
+  
 }

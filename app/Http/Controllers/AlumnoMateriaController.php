@@ -2,73 +2,69 @@
 
 namespace App\Http\Controllers;
 
+use App\Materia;
 use App\Alumno;
 use Illuminate\Http\Request;
 
-class AlumnoController extends Controller
+class AlumnoMateriaController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
+     * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Alumno $alumno)
     {
-        $alumnos = Alumno::all();
-        return view('alumnos.indexAlumno', compact('alumnos'));
+        //
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Alumno $alumno)
     {
-        return view('alumnos.formAlumno');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Alumno $alumno)
     {
-        $rules = array(
-          'nombre' => 'required',
-          'codigo' => 'required|numeric', 
-          'carrera' => 'required',
-        );
-        
-        $this->validate($request, $rules);
-        $data = $request->all();
-        $alumno = Alumno::create($data);
-        return redirect()->route('alumnos.index');
+        $alumno->materias()->attach($request->materias);
+        return redirect()->route('alumnos.show', $alumno->id);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Alumno  $alumno
+     * @param  \App\Materia  $materia
      * @return \Illuminate\Http\Response
      */
-    public function show(Alumno $alumno)
+    public function show(Alumno $alumno, Materia $materia)
     {
-        $alumno = Alumno::find($alumno->id);
-        return view('alumnos.showAlumno', compact('alumno','materias'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Alumno  $alumno
+     * @param  \App\Materia  $materia
      * @return \Illuminate\Http\Response
      */
-    public function edit(Alumno $alumno)
+    public function edit(Alumno $alumno, Materia $materia)
     {
-        return view('alumnos.formAlumno', compact('alumno'));
+        //
     }
 
     /**
@@ -76,9 +72,10 @@ class AlumnoController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Alumno  $alumno
+     * @param  \App\Materia  $materia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alumno $alumno)
+    public function update(Request $request, Alumno $alumno, Materia $materia)
     {
         //
     }
@@ -87,10 +84,12 @@ class AlumnoController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Alumno  $alumno
+     * @param  \App\Materia  $materia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Alumno $alumno)
+    public function destroy(Alumno $alumno, Materia $materia)
     {
-        //
+        $alumno->materias()->detach($materia->id);
+        return redirect()->route('alumnos.show', $alumno->id);
     }
 }

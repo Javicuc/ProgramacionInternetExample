@@ -26,7 +26,7 @@
         @include('layouts.notificaciones')
         @include('layouts.usuario_menu')
       @else
-        <a class="btn btn-light" href="{{ route('login') }}">Login</a>
+        <a class="app-nav__item" href="{{ route('login') }}"><i class="fa fa-sign-in"></i></a>
       @endif
     </ul>
   </header>

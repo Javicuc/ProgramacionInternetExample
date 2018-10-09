@@ -13,18 +13,20 @@
 @endif
 <table class="table">
   <thead>
+    <th>ID</th>
     <th>Nombre</th>
     <th>CÓDIGO</th>
     <th>CARRERA</th>
-    <th>Ultima Actualización</th>
   </thead>
   <tbody>
     @foreach($alumnos as $alumno)
     <tr>
+      <td>
+        <a class="btn btn-sm btn-info" href="{{ route('alumnos.show', $alumno->id) }}">{{ $alumno->id }}</a>
+      </td>
       <td>{{ $alumno->nombre }}</td>
       <td>{{ $alumno->codigo }}</td>
       <td>{{ $alumno->carrera }}</td>
-      <td>{{ $alumno->updated_at }}</td>
     </tr>
     @endforeach
   </tbody>
