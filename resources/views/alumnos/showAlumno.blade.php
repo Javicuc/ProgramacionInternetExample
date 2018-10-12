@@ -1,5 +1,4 @@
-@extends('layouts.tema') 
-@section('contenido')
+@extends('layouts.tema') @section('contenido')
 
 <div class="clearfix"></div>
 <div class="col-md-6">
@@ -32,8 +31,40 @@
             <td>{{ $alumno->carrera }}</td>
           </tr>
         </tbody>
+      </table>
     </div>
   </div>
 </div>
-
+ <div class="clearfix"></div>
+<div class="col-md-6">
+  <div class="tile">
+    <div class="tile-title-w-btn">
+      <h3 class="title">Agregar Materias</h3>
+    </div>
+    <div class="tile-body">
+      <p>Agregar materias al usuario seleccionado</p>
+      <h4>Materias</h4>
+       {!! Form::open(['route' => ['alumno.materia.store', $alumno->id]]) !!}
+      <div class="form-group">
+        <select class="form-control" name="materias">
+          @foreach($materias as $materia)
+            <option value="{{ $materia->id }}">{{ $materia->materia }}</option>
+          @endforeach
+        </select>
+        {!! Form::submit('Aceptar', ['class' => 'btn btn-sm btn-succesful']) !!}
+        {!! Form::close() !!}
+      </div>
+    </div>
+    {!! Form::open(['route' => ['alumno.materia.destroy', $alumno->id, $materia->id], 'method' => 'Delete' ]) !!}
+    {!! Form::submit('Eliminar', ['class' => 'btn btn-sm btn-danger']) !!}
+    {!! Form::close() !!}
+  </div>
+  <hr>
+  <ul>
+    @foreach($alumno->materias as $materia)
+      <li> {{ $materia->materia}} </li>
+    @endforeach
+  </ul>
+ 
+</div>
 @endsection

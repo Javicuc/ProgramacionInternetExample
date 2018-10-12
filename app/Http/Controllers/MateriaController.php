@@ -52,12 +52,20 @@ class MateriaController extends Controller
       
         $this->validate($request, $rules);
         
+        /*
         //Agrega 'user_id' al request para que se inserte a la base de datos
         $request->merge(['user_id' => \Auth::id()]);
 
         $data = $request->all();
         $materia = Materia::create($data);
-        return redirect()->route('materias.index');
+        */
+        $materia = new Materia($request->all());
+      
+        $user = User::find(\Auth::id());
+      
+        $user->materias()->save($materia);
+      
+        return redirect()->route('materias.show',$materia);
     }
 
     /**
@@ -106,7 +114,7 @@ class MateriaController extends Controller
       
         Materia::where('id', $materia->id)->update($request->except('_token', '_method'));
       
-        return view('materias.showMateria', compact('materia'));
+        return redirect()->route('materias.show',$materia);
     }
 
     /**

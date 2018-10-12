@@ -16,5 +16,4 @@ class Alumno extends Model
   {
     return $this->belongsToMany(Materia::class);
   }
-  
 }

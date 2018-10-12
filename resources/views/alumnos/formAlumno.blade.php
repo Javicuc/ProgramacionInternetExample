@@ -31,7 +31,7 @@
           {{-- csrf_field() --}}
           <div class="form-group">
             <label for="nombre" class="control-label">Nombre</label>
-            {!! Form::text('alumno', null, ['class' => 'form-control', 'placeholder' => 'Escriba el nombre del alumno']); !!}
+            {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Escriba el nombre del alumno']); !!}
           </div>
           <div class="form-group">            
             <label for="codigo" class="control-label">Código</label>
