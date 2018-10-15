@@ -13600,6 +13600,35 @@ be a descendant of the grid when it is being dragged.
   color: #fff;
 }
 
+.app-header__logo_lg {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  color: #fff;
+  text-align: center;
+  font-family: 'Niconne';
+  padding: 0 15px;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 100px;
+}
+
+@media (min-width: 768px) {
+  .app-header__logo_lg {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    display: block;
+    width: 430px;
+    background-color: #009688;
+  }
+}
+
+.app-header__logo_lg:focus, .app-header__logo_lg:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
 .app-sidebar__toggle {
   padding: 0 15px;
   font-family: fontAwesome;
@@ -13791,9 +13820,12 @@ be a descendant of the grid when it is being dragged.
   background-color: #222d32;
   -webkit-box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
-  -webkit-transition: left 0.3s ease, width 0.3s ease;
-  -o-transition: left 0.3s ease, width 0.3s ease;
-  transition: left 0.3s ease, width 0.3s ease;
+  -webkit-transition: left 0.3s ease,
+ width 0.3s ease;
+  -o-transition: left 0.3s ease,
+ width 0.3s ease;
+  transition: left 0.3s ease,
+ width 0.3s ease;
 }
 
 .app-sidebar::-webkit-scrollbar {
@@ -13870,9 +13902,12 @@ be a descendant of the grid when it is being dragged.
   padding: 12px 15px;
   font-size: 1.08em;
   border-left: 3px solid transparent;
-  -webkit-transition: border-left-color 0.3s ease, background-color 0.3s ease;
-  -o-transition: border-left-color 0.3s ease, background-color 0.3s ease;
-  transition: border-left-color 0.3s ease, background-color 0.3s ease;
+  -webkit-transition: border-left-color 0.3s ease,
+ background-color 0.3s ease;
+  -o-transition: border-left-color 0.3s ease,
+ background-color 0.3s ease;
+  transition: border-left-color 0.3s ease,
+ background-color 0.3s ease;
   color: #fff;
 }
 
@@ -14887,7 +14922,7 @@ be a descendant of the grid when it is being dragged.
 .login-content .login-box {
   position: relative;
   min-width: 350px;
-  min-height: 390px;
+  min-height: 430px;
   background-color: #fff;
   -webkit-box-shadow: 0px 29px 147.5px 102.5px rgba(0, 0, 0, 0.05), 0px 29px 95px 0px rgba(0, 0, 0, 0.16);
           box-shadow: 0px 29px 147.5px 102.5px rgba(0, 0, 0, 0.05), 0px 29px 95px 0px rgba(0, 0, 0, 0.16);
@@ -14925,7 +14960,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 .login-content .login-box .btn-container {
-  margin-bottom: 0;
+  margin-bottom: 0.1;
 }
 
 .login-content .login-box .login-form, .login-content .login-box .forget-form {

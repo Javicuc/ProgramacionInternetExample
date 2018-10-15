@@ -50,7 +50,7 @@ class AlumnoMateriaController extends Controller
      * @param  \App\Materia  $materia
      * @return \Illuminate\Http\Response
      */
-    public function show(Alumno $alumno, Materia $materia)
+    public function show(Alumno $alumno, Materia $materium)
     {
         //
     }
@@ -62,7 +62,7 @@ class AlumnoMateriaController extends Controller
      * @param  \App\Materia  $materia
      * @return \Illuminate\Http\Response
      */
-    public function edit(Alumno $alumno, Materia $materia)
+    public function edit(Alumno $alumno, Materia $materium)
     {
         //
     }
@@ -75,7 +75,7 @@ class AlumnoMateriaController extends Controller
      * @param  \App\Materia  $materia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alumno $alumno, Materia $materia)
+    public function update(Request $request, Alumno $alumno, Materia $materium)
     {
         //
     }
@@ -87,9 +87,9 @@ class AlumnoMateriaController extends Controller
      * @param  \App\Materia  $materia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Alumno $alumno, Materia $materia)
+    public function destroy(Alumno $alumno, Materia $materium)
     {
-        $alumno->materias()->detach($materia->id);
+        $alumno->materias()->detach($materium);
         return redirect()->route('alumnos.show', $alumno->id);
     }
 }

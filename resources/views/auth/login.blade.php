@@ -5,7 +5,7 @@
 </section>
 <section class="login-content">
   <div class="logo">
-    <h1>Asistencia</h1>
+    <a class="app-header__logo_lg" href="{{ url('/inicio') }}">Asistencias</a>
   </div>
   <div class="login-box">
     <form class="login-form" method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
@@ -46,6 +46,10 @@
         
         <div class="form-group btn-container">
           <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>{{ __('Entrar') }}</button>
+        </div>
+
+        <div class="form-group btn-container">
+          <a class="btn btn-primary btn-block" href="{{ route('register') }}">{{ __('Registrar') }}</a>
         </div>
       </form>
     </div>
